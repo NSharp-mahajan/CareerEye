@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="/CSS/bot.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="/CSS/style.css">
     <link rel="stylesheet" href="/CSS/footerstyle.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+    <title>CarrerEye</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg" style="background-color: black; color: white; position: fixed; width: 100vw;">
   <div class="container-fluid" style="width: 15%;">
     <a class="navbar-brand" href="#" style="color: white; font-size: 40px;">
-    <img src="./images/WhatsApp Image 2025-02-08 at 14.40.30_2aa74c3a.jpg" alt="Logo" height="60" class="d-inline-block align-text-top" style="border-radius: 360px;">
+    <img src="/images/WhatsApp Image 2025-02-08 at 14.40.30_2aa74c3a.jpg" alt="Logo" height="60" class="d-inline-block align-text-top" style="border-radius: 360px;">
     CarrerEye
     </a>
   </div>
@@ -45,14 +46,14 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="searchbtn" type="submit" style="border:2px solid #545454; border-radius: 10px;">Search</button>
       </form>
-            <!-- <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
-              </li> -->
-      <li class="nav-item" >
-        <a class="nav-link" href="./signup.html" id="login" style="position: absolute; right: 200px; border: 2px solid #545454; border-radius: 20px;">Login</a>
-      </li>
+             <li class="nav-item">
+                <a class="nav-link active" class="road" aria-current="page" href="/roadmap.html" style="color: white; position: absolute; left: 990px; border: 2px solid #545454; border-radius: 20px;">AI Roadmap Generator</a>
+              </li>
+      <ul class="navbar-nav">
+        <a class="nav-link" href="/signup.html" id="login" style="position: absolute; right: 200px; border: 2px solid #545454; border-radius: 20px;">Login</a>
+        
       <li class="nav-item">
-        <a class="nav-link" id="login" href="./signup.html" style="position: absolute; right: 100px; border: 2px solid #545454; border-radius: 20px;">Sign Up</a>
+        <a class="nav-link" id="login" href="/signup.html" style="position: absolute; right: 100px;top: 26px; border: 2px solid #545454; border-radius: 20px;">Sign Up</a>
       </li>
       </ul>
   </div>
@@ -87,8 +88,7 @@
     <label class="option">
         <input type="checkbox" onclick="toggleButton()"> Something else
     </label>
-
-    <button id="continueBtn" class="button" disabled>Continue</button>
+    <button id="continueBtn" class="button" type="button" disabled>Continue</button>
 </div>
 </div>
 <div class="get">
@@ -116,8 +116,8 @@
   <div class="left-section">
       <h1>Why should you choose premium?</h1>
       <div>
-          <a href="#" class="register">Register</a>
-          <a href="#" class="back">Offers</a>
+          <a href="/signup.html" class="register">Register</a>
+          <a href="/offers.html" class="back">Offers</a>
       </div>
   </div>
   <div class="right-section">
@@ -164,14 +164,13 @@
 <br>
 <br>
 <br>
-
+<br><br><br>
 <div class="body">
 <div class="container1">
   <h1>Start your journey today.</h1>
   <p>Choose from 3 plans. Starting at ₹999/month, billed annually.</p>
-  <div class="buttons1">
-      <button class="btn1 btn1-primary">Sign Up</button>
-      <button class="btn1 btn1-secondary">Explore Classes</button>
+      <a href="/signup.html"><button class="btn1 btn1-primary" type="button">Sign Up</button></a>
+      <a class="btn1 btn1-secondary" type="button" href="/offers.html" style="text-decoration: none;">Explore Classes</a>
   </div>
 </div></div>
 
@@ -202,9 +201,8 @@
       </div>
     </div>
   </div>
-    <div class="nav-buttons">
-      <button onclick="prevSlide()" class="prev-button">&#8249;</button>
-      <button onclick="nextSlide()" class="next-button">&#8250;</button>
+      <button onclick="prevSlide()" class="prev-button" type="button">&#8249;</button>
+      <button onclick="nextSlide()" class="next-button" type="button">&#8250;</button>
     </div>
 </div>
 </div>
@@ -218,7 +216,7 @@
 
   <div class="faq">
       <div class="faq-question">What is CareerEye? </div>
-      <div class="faq-answer">CareerEye is the streaming platform that makes it possible for anyone to watch or listen to hundreds of video lessons taught by 200+ of the world’s best.
+      <div class="faq-answer">CareerEye is the streaming p</div>latform that makes it possible for anyone to watch or listen to hundreds of video lessons taught by 200+ of the world’s best.
        <br>
        <br>
           Whether it be in business and leadership, photography, cooking, writing, acting, music, sports and more, CareerEye delivers a world class online learning experience. Video lessons are available anytime, anywhere on your smartphone, personal computer, Apple TV and FireTV streaming media players.</div>
@@ -261,32 +259,48 @@
 
 <br><br><br><br><br>
 
+<!-- Floating Chatbot Button -->
+<button id="chatbot-btn">💬 Chat</button>
+
+<!-- Chatbot Container (Initially Hidden) -->
+<div id="chat-container" class="hidden">
+    <div id="chat-header">
+        <span>AI Chatbot</span>
+        <button id="close-chat">✖</button>
+    </div>
+    <div id="chat-box"></div>
+    <div id="chat-input">
+        <input type="text" id="user-input" placeholder="Ask me something..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+
 
 <footer>
   <div class="footer">
       <div class="footer-column">
           <h3>Top Genres</h3>
           <ul>
-              <li><a href="#">Academics</a></li>
-              <li><a href="#">Fiction</a></li>
-              <li><a href="#">Non Fiction</a></li>
-              <li><a href="#">Children</a></li>
-              <li><a href="#">Young Adults</a></li>
-              <li><a href="#">Comics & Graphic Novels</a></li>
-              <li><a href="#" style="color: #b3b3b3;">Languages</a></li>
+              <li><a href="#">Trending</a></li>
+              <li><a href="#">Competitions</a></li>
+              <li><a href="#">Art & Design</a></li>
+              <li><a href="#">Entrepreneurship</a></li>
+              <li><a href="#">Community & Government</a></li>
+              <li><a href="#" class="grey-link">NDA prep</a></li>
+              <li><a href="#" style="color: #b3b3b3;">BOOKS</a></li>
               <li><a href="#">OFFERS</a></li>
           </ul>
       </div>
       <div class="footer-column">
           <h3>Quick Links</h3>
           <ul>
-              <li><a href="#">Bestsellers</a></li>
-              <li><a href="#">New Arrivals</a></li>
-              <li><a href="#">YT Education</a></li>
+              <li><a href="#">NEET PREP</a></li>
+              <li><a href="#">JEE MAINS</a></li>
+              <li><a href="#">Courses</a></li>
               <li><a href="#">Gifting</a></li>
-              <li><a href="#">Brand Stores</a></li>
-              <li><a href="#">Affiliate Programme</a></li>
-              <li><a href="#" style="color: #b3b3b3;">Sitemap</a></li>
+              <li><a href="#">Writing</a></li>
+              <li><a href="#" class="grey-link">Teacher's Guide</a></li>
+              <li><a href="#" style="color: #b3b3b3;">Competitions</a></li>
               <li><a href="#">BLOG</a></li>
           </ul>
       </div>
@@ -313,26 +327,6 @@
               <li><a href="#">FAQs</a></li>
           </ul>
       </div>
-      <div class="footer-column">
-          <h3>Top Authors</h3>
-          <ul>
-              <li><a href="#">Joseph Murphy</a></li>
-              <li><a href="#">Osho</a></li>
-              <li><a href="#">Neville Goddard</a></li>
-              <li><a href="#">Sudha Murty</a></li>
-              <li><a href="#">Ruskin Bond</a></li>
-          </ul>
-      </div>
-      <div class="footer-column">
-          <h3>Top Publishers</h3>
-          <ul>
-              <li><a href="#">Penguin Random House</a></li>
-              <li><a href="#">Arihant Publication India</a></li>
-              <li><a href="#">Oswaal Books And Learning Pvt Ltd</a></li>
-              <li><a href="#">Notion Press</a></li>
-              <li><a href="#">Manjul Publishing House Pvt Ltd</a></li>
-          </ul>
-      </div>
       <div class="footer-column app-s">
           <h3>Experience Our App</h3>
           <div class="app-img">
@@ -356,5 +350,6 @@
 </footer>
 </body>
 <script src="/JS/bootstrap.bundle.min.js"></script>
+<script src="/JS/bot.js"></script>
 <script src="/JS/form.js"></script>
 </html>

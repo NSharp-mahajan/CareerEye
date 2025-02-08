@@ -44,18 +44,17 @@ let currentSlide = 0;
   
       faqs.forEach((faq) => {
           faq.addEventListener("click", function () {
-              this.classList.toggle("open"); // Toggle 'open' class for arrow rotation
+              this.classList.toggle("open");
               const answer = this.querySelector(".faq-answer");
               answer.style.display = answer.style.display === "block" ? "none" : "block";
               
-              // Change the arrow direction dynamically
+             
               const arrow = this.querySelector(".faq-arrow");
               if (answer.style.display === "block") {
-                  arrow.innerHTML = "&#11165;"; // Change to ⮝ (Up)
+                  arrow.innerHTML = "&#11165;"; 
               } else {
-                  arrow.innerHTML = "&#11167;"; // Change to ⮟ (Down)
+                  arrow.innerHTML = "&#11167;"; 
               }
           });
       });
   });
-  
